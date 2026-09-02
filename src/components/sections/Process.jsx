@@ -1,82 +1,70 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const steps = [
-  {
-    number: '01',
-    title: 'Discovery',
-    description: 'We dive deep into your business goals, market trends, and target audience to build a solid foundation.'
-  },
-  {
-    number: '02',
-    title: 'Strategy',
-    description: 'Developing a comprehensive roadmap tailored for growth, choosing the right tech and marketing mix.'
-  },
-  {
-    number: '03',
-    title: 'Design',
-    description: 'Crafting premium, high-converting interfaces and brand identities that resonate with excellence.'
-  },
-  {
-    number: '04',
-    title: 'Development',
-    description: 'Engineering high-performance solutions with clean code, scalability, and security at the core.'
-  },
-  {
-    number: '05',
-    title: 'Scale',
-    description: 'Launching and iterating with data-driven insights to dominate the market and maximize ROI.'
-  }
-];
+import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { PROCESS_STEPS } from '../../data/websiteData';
 
 const Process = () => {
   return (
-    <section className="section-padding bg-dark overflow-hidden">
+    <section className="py-24 px-5 sm:px-8 md:px-12 lg:px-16 bg-[#070B14] relative" id="process">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block"
-          >
-            How We Work
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-bold"
-          >
-            Our Strategic <span className="text-gradient">Workflow</span>
-          </motion.h2>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-primary px-3 py-1 bg-primary/10 border border-primary/20 rounded-full inline-block">
+            09 • Proven Delivery Methodology
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight">
+            From Idea to Launch.
+          </h2>
+          <p className="text-base sm:text-lg text-slate-300">
+            A disciplined 6-stage engineering process ensuring zero scope creep and rapid launch times.
+          </p>
         </div>
 
-        <div className="relative">
-          {/* Connector Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-[1px] bg-white/5 -translate-y-1/2" />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 relative z-10">
-            {steps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="relative group"
-              >
-                <div className="text-8xl font-display font-black text-white/[0.03] absolute -top-12 -left-4 group-hover:text-primary/[0.05] transition-colors duration-500">
-                  {step.number}
+        {/* 6 Steps Grid Timeline */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PROCESS_STEPS.map((step, idx) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className="bg-[#0B1020] border border-white/[0.08] rounded-3xl p-6 sm:p-8 space-y-6 relative hover:border-primary/40 transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                {/* Step Number Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-3xl font-display font-black text-primary/30 group-hover:text-primary transition-colors">
+                    {step.number}
+                  </span>
+                  <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono font-bold text-slate-400">
+                    STAGE {step.number}
+                  </span>
                 </div>
-                <div className="mb-6 w-12 h-12 rounded-full glass border-white/10 flex items-center justify-center text-primary font-bold text-sm group-hover:bg-primary group-hover:text-dark transition-all duration-500 relative z-20">
-                  {idx + 1}
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">{step.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
+
+                <h3 className="text-2xl font-display font-bold text-white mb-3">
+                  {step.title}
+                </h3>
+
+                <p className="text-sm text-slate-300 leading-relaxed mb-6">
+                  {step.subtitle}
+                </p>
+              </div>
+
+              {/* Deliverables Checklist */}
+              <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-primary block">
+                  Key Deliverables:
+                </span>
+                {step.deliverables.map((del, dIdx) => (
+                  <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-300">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>{del}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import PortfolioSection from '../components/sections/Portfolio';
-import CTA from '../components/sections/CTA';
+import CaseStudies from '../components/sections/CaseStudies';
+import ContactForm from '../components/sections/ContactForm';
 
 const Portfolio = () => {
   return (
@@ -9,41 +9,23 @@ const Portfolio = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
       className="pt-32"
     >
-       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block"
-        >
-          Success Stories
-        </motion.span>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-8xl font-display font-bold mb-8"
-        >
-          Selected <span className="text-gradient">Case Studies</span>
-        </motion.h1>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 mb-16 text-center space-y-4">
+        <span className="text-xs font-bold uppercase tracking-widest text-primary px-3 py-1 bg-primary/10 border border-primary/20 rounded-full inline-block">
+          Portfolio & Case Studies
+        </span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold text-white tracking-tight">
+          Featured Digital Work.
+        </h1>
+        <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+          Detailed case studies showcasing custom platforms, e-commerce stores, and business web applications.
+        </p>
       </div>
 
-      <PortfolioSection />
-      
-      <div className="bg-dark py-32 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl font-display font-bold mb-12">Clients We've Helped Dominate</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-20">
-             {['Google', 'Meta', 'Netflix', 'Amazon', 'Apple', 'Tesla', 'SpaceX', 'Uber'].map(c => (
-               <div key={c} className="text-2xl font-bold tracking-tighter py-8 border border-white/10 rounded-2xl">
-                 {c}
-               </div>
-             ))}
-          </div>
-        </div>
-      </div>
-
-      <CTA />
+      <CaseStudies />
+      <ContactForm />
     </motion.div>
   );
 };

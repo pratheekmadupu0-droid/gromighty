@@ -1,13 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/sections/Hero';
-import TrustedBy from '../components/sections/TrustedBy';
+import WhatIsGroMighty from '../components/sections/WhatIsGroMighty';
+import BusinessTransformation from '../components/sections/BusinessTransformation';
+import WhyGroMighty from '../components/sections/WhyGroMighty';
+import InteractiveDemos from '../components/sections/InteractiveDemos';
+import ProjectCalculator from '../components/sections/ProjectCalculator';
+import SolutionFinder from '../components/sections/SolutionFinder';
 import Services from '../components/sections/Services';
-import Portfolio from '../components/sections/Portfolio';
+import ServicesBenefits from '../components/sections/ServicesBenefits';
+import IndustrySolutions from '../components/sections/IndustrySolutions';
+import CaseStudies from '../components/sections/CaseStudies';
 import Process from '../components/sections/Process';
+import Technology from '../components/sections/Technology';
+import Pricing from '../components/sections/Pricing';
+import Trust from '../components/sections/Trust';
 import Testimonials from '../components/sections/Testimonials';
-import Industries from '../components/sections/Industries';
-import CTA from '../components/sections/CTA';
+import FAQ from '../components/sections/FAQ';
+import FinalCTA from '../components/sections/FinalCTA';
+import ContactForm from '../components/sections/ContactForm';
 
 const Home = () => {
   return (
@@ -15,16 +26,27 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
     >
       <Hero />
-      <TrustedBy />
+      <WhatIsGroMighty />
+      <BusinessTransformation />
+      <WhyGroMighty />
+      <InteractiveDemos />
+      <ProjectCalculator />
+      <SolutionFinder />
       <Services />
-      <Portfolio limit={2} />
+      <ServicesBenefits />
+      <IndustrySolutions />
+      <CaseStudies limit={4} />
       <Process />
-      <Industries />
+      <Technology />
+      <Pricing />
+      <Trust />
       <Testimonials />
-      <CTA />
+      <FAQ />
+      <FinalCTA />
+      <ContactForm />
     </motion.div>
   );
 };
