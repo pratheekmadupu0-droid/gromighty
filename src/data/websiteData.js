@@ -8,10 +8,10 @@ export const BRAND = {
   legalName: "Gromighty Online Agency Services",
   tagline: "Digital Experiences Built to Move Your Business Forward.",
   subtitle: "We design and build websites, software, AI solutions and digital experiences that help businesses attract customers, operate smarter and grow.",
-  phone1: "+91 91216 11200",
-  phone2: "+91 93901 02334",
+  phone1: "+91 70752 09102",
+  phone2: "+91 70752 09102",
   email: "gromighty@gmail.com",
-  whatsappNumber: "919121611200",
+  whatsappNumber: "917075209102",
   address: "Hyderabad & Global Remote Operations",
 };
 
