@@ -5,13 +5,19 @@ import logo from '../../assets/logo.png';
 import { BRAND } from '../../data/websiteData';
 
 const Footer = () => {
+  const handleTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   return (
     <footer className="bg-[#050810] border-t border-white/[0.08] text-slate-400 pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-6">
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" onClick={handleTop} className="flex items-center gap-3">
               <img src={logo} alt="GroMighty" className="h-10 w-auto object-contain" />
               <div>
                 <span className="text-lg font-bold text-white block">GroMighty</span>
@@ -48,25 +54,25 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+                <Link to="/" onClick={handleTop} className="hover:text-primary transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary transition-colors">Services</Link>
+                <Link to="/services" onClick={handleTop} className="hover:text-primary transition-colors">Services</Link>
               </li>
               <li>
-                <Link to="/solutions" className="hover:text-primary transition-colors">Solutions</Link>
+                <Link to="/solutions" onClick={handleTop} className="hover:text-primary transition-colors">Solutions</Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-primary transition-colors">Featured Work</Link>
+                <Link to="/work" onClick={handleTop} className="hover:text-primary transition-colors">Featured Work</Link>
               </li>
               <li>
-                <Link to="/process" className="hover:text-primary transition-colors">How We Work</Link>
+                <Link to="/process" onClick={handleTop} className="hover:text-primary transition-colors">How We Work</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-primary transition-colors">About GroMighty</Link>
+                <Link to="/about" onClick={handleTop} className="hover:text-primary transition-colors">About GroMighty</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+                <Link to="/contact" onClick={handleTop} className="hover:text-primary transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -117,6 +123,7 @@ const Footer = () => {
             </a>
             <Link
               to="/contact"
+              onClick={handleTop}
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-slate-950 rounded-xl text-xs font-bold hover:bg-primary-light transition-all w-full justify-center"
             >
               Start Project Inquiry

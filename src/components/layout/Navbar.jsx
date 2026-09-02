@@ -32,6 +32,12 @@ const Navbar = ({ onOpenContact }) => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
@@ -42,7 +48,7 @@ const Navbar = ({ onOpenContact }) => {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" onClick={handleNavClick} className="flex items-center gap-3 group">
           <img
             src={logo}
             alt="GroMighty"
@@ -66,6 +72,7 @@ const Navbar = ({ onOpenContact }) => {
               <Link
                 key={link.name}
                 to={link.path}
+                onClick={handleNavClick}
                 className={`text-sm font-medium transition-colors relative py-1 ${
                   isActive ? 'text-primary font-semibold' : 'text-slate-300 hover:text-white'
                 }`}
@@ -87,11 +94,7 @@ const Navbar = ({ onOpenContact }) => {
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/contact"
-            onClick={(e) => {
-              if (onOpenContact) {
-                // if callback provided, can open modal or route
-              }
-            }}
+            onClick={handleNavClick}
             className="px-5 py-2.5 bg-primary hover:bg-primary-light text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md flex items-center gap-2 hover:shadow-subtle-glow"
           >
             Start a Project
@@ -125,7 +128,10 @@ const Navbar = ({ onOpenContact }) => {
                   <Link
                     key={link.name}
                     to={link.path}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      handleNavClick();
+                    }}
                     className={`text-xl font-display font-semibold transition-colors flex items-center justify-between py-2 border-b border-white/[0.05] ${
                       location.pathname === link.path ? 'text-primary' : 'text-slate-200'
                     }`}
@@ -139,7 +145,10 @@ const Navbar = ({ onOpenContact }) => {
               <div className="pt-4 space-y-3">
                 <Link
                   to="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    handleNavClick();
+                  }}
                   className="w-full py-4 bg-primary text-slate-950 rounded-xl font-bold text-center block text-sm uppercase tracking-wider shadow-lg"
                 >
                   Start a Project
